@@ -8,7 +8,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       recentCampers: [],
-      allTimeCampers: []
+      allTimeCampers: [],
+      currentView: 'recentCampers'
     };
 
     axios.all([this.fetchRecentCampers(), this.fetchAllTimeCampers()])
@@ -18,6 +19,10 @@ export default class App extends Component {
           allTimeCampers: allTimeCampers.data
         });
       }));
+  }
+
+  changeView(view) {
+    this.setState({ currentView: view });
   }
 
   fetchRecentCampers() {
@@ -34,7 +39,11 @@ export default class App extends Component {
     }
 
     return (
-      <CamperList recentCampers={this.state.recentCampers} />
+      <div>
+      <button onClick={() => this.changeView('recentCampers')} className="btn btn-primary">Past 30 Days</button>
+      <button onClick={() => this.changeView('allTimeCampers')} className="btn btn-primary">All Time</button>
+      <CamperList recentCampers={this.state[this.state.currentView]} />
+      </div>
     );
   }
 }
