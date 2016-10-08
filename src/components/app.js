@@ -13,6 +13,7 @@ export default class App extends Component {
     };
   }
 
+  // Can fetch in lifecycle method or in cunstructor
   componentWillMount() {
     axios.all([this.fetchRecentCampers(), this.fetchAllTimeCampers()])
       .then(axios.spread((recentCampers, allTimeCampers) => {
@@ -42,6 +43,7 @@ export default class App extends Component {
 
     return (
       <div>
+        <h2>Viewing Top {this.state.currentView}</h2>
         <button onClick={() => this.changeView('recentCampers')} className="btn btn-primary">Past 30 Days</button>
         <button onClick={() => this.changeView('allTimeCampers')} className="btn btn-primary">All Time</button>
         <CamperList campers={this.state[this.state.currentView]} />
