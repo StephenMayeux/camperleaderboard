@@ -11,7 +11,9 @@ export default class App extends Component {
       allTimeCampers: [],
       currentView: 'recentCampers'
     };
+  }
 
+  componentWillMount() {
     axios.all([this.fetchRecentCampers(), this.fetchAllTimeCampers()])
       .then(axios.spread((recentCampers, allTimeCampers) => {
         this.setState({
