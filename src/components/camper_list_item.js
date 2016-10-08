@@ -1,8 +1,13 @@
 import React from 'react';
 
-const CamperListItem = ({ camper }) => {
+const CamperListItem = ({ camper, number }) => {
   return (
-    <li>{camper.username} with {camper.recent} recent points.</li>
+    <tr>
+      <td>{number}</td>
+      <td>{camper.username}</td>
+      <td>{camper.recent}</td>
+      <td>{camper.alltime}</td>
+    </tr>
   );
 }
 
