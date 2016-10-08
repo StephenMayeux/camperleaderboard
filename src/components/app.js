@@ -40,9 +40,9 @@ export default class App extends Component {
 
     return (
       <div>
-      <button onClick={() => this.changeView('recentCampers')} className="btn btn-primary">Past 30 Days</button>
-      <button onClick={() => this.changeView('allTimeCampers')} className="btn btn-primary">All Time</button>
-      <CamperList recentCampers={this.state[this.state.currentView]} />
+        <button onClick={() => this.changeView('recentCampers')} className="btn btn-primary">Past 30 Days</button>
+        <button onClick={() => this.changeView('allTimeCampers')} className="btn btn-primary">All Time</button>
+        <CamperList campers={this.state[this.state.currentView]} />
       </div>
     );
   }

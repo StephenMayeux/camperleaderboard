@@ -2,9 +2,9 @@ import React from 'react';
 
 import CamperListItem from './camper_list_item';
 
-const VideoList = ({ recentCampers }) => {
+const VideoList = ({ campers }) => {
 
-  const recentCampersItems = recentCampers.map((camper) => {
+  const recentCampersItems = campers.map((camper) => {
     return (
       <CamperListItem key={camper.username} camper={camper} />
     );
